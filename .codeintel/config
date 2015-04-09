@@ -1,0 +1,7 @@
+{
+    "Python": {
+        "python": '~/virtualenvs/python-spider/bin/python',
+        "pythonExtraPaths": ['~/virtualenvs/python-spider/lib/python2.7/site-packages',
+        ]
+    },
+}
