@@ -11,10 +11,11 @@ class DmozSpider(scrapy.Spider):
         "http://news.dbanotes.net/"
     ]
 
+# startup new 爬虫
     def parse(self, response):
         for sel in response.xpath('//tr/td//tr'):
             item = DmozItem()
             item['id'] = sel.xpath('td/text()[1]').re('\d+')
-            item['title'] = sel.xpath('td/a/text()[1]').re('[^\u4e00-\u9fa5]+')
+            item['title'] = sel.xpath('td[3]/a/text()').extract()
             item['link'] = sel.xpath('td[3]/a/@href').extract()
             yield item
